@@ -14,19 +14,65 @@
                 <th>Api name</th>
                 <th>Date</th>
                 <th>Load parameters</th>
+                <th>Target</th>
                 <th>Link</th>
                 <th>Comment</th>
                 <tr>
                     <td>/productrepository/products</td>
-                    <td>2019-08-13</td>
-                    <td>150 RPS 30 min</td>
-                    <td><a href="./productrepositorysimulation-20190813104838577/index.html">Report</a></td>
-                    <td><p>13:06 - reboot  arulmcoembb27.int.adeo.com</p>
-                        <p>13:06 - reboot  arulmcoembb28.int.adeo.com</p>
-                        <p>13:14:50 -systemctl stop mongos.service arulmcoembb29.int.adeo.com</p>
-                        <p>14:21:32  - systemctl start mongos.service arulmcoembb29.int.adeo.com</p>
+                    <td>2019-08-19</td>
+                    <td>600 RPS 2 min + 15 min</td>
+                    <td>F5 PERF</td>
+                    <td><a href="./productrepositorysimulation-20190819121126469_Perf_600_F5">Report</a></td>
+                    <td>================================================================================
+                            ---- Global Information --------------------------------------------------------
+                            > request count                                     579000 (OK=576339 KO=2661  )
+                            > min response time                                     16 (OK=16     KO=28    )
+                            > max response time                                   9348 (OK=9348   KO=7163  )
+                            > mean response time                                   179 (OK=171    KO=1978  )
+                            > std deviation                                        521 (OK=501    KO=1192  )
+                            > response time 50th percentile                         51 (OK=51     KO=1693  )
+                            > response time 75th percentile                         79 (OK=79     KO=2494  )
+                            > response time 95th percentile                       1049 (OK=909    KO=4165  )
+                            > response time 99th percentile                       2813 (OK=2747   KO=6237  )
+                            > mean requests/sec                                567.091 (OK=564.485 KO=2.606 )
+                            ---- Response Time Distribution ------------------------------------------------
+                            > t < 30 ms                                         107110 ( 18%)
+                            > 30 ms < t < 50 ms                                 180247 ( 31%)
+                            > t > 50 ms                                         288982 ( 50%)
+                            > failed                                              2661 (  0%)
+                            ---- Errors --------------------------------------------------------------------
+                            > j.i.IOException: Premature close                                 2596 (97.56%)
+                            > status.find.in(200,201,202,203,204,205,206,207,208,209,304), f     65 ( 2.44%)
+                            ound 500
+                            ================================================================================
                     </td>
                 </tr>
+                <tr>
+                        <td>/productrepository/products</td>
+                        <td>2019-08-19</td>
+                        <td>600 RPS 2 min + 15 min</td>
+                        <td>NGINX PERF</td>
+                        <td><a href="productrepositorysimulation-20190819124802077_Perf_600_Nginx">Report</a></td>
+                        <td>================================================================================
+                                ---- Global Information --------------------------------------------------------
+                                > request count                                     579000 (OK=579000 KO=0     )
+                                > min response time                                     12 (OK=12     KO=-     )
+                                > max response time                                   3296 (OK=3296   KO=-     )
+                                > mean response time                                    19 (OK=19     KO=-     )
+                                > std deviation                                         37 (OK=37     KO=-     )
+                                > response time 50th percentile                         17 (OK=17     KO=-     )
+                                > response time 75th percentile                         19 (OK=19     KO=-     )
+                                > response time 95th percentile                         26 (OK=26     KO=-     )
+                                > response time 99th percentile                         36 (OK=36     KO=-     )
+                                > mean requests/sec                                567.091 (OK=567.091 KO=-     )
+                                ---- Response Time Distribution ------------------------------------------------
+                                > t < 30 ms                                         562987 ( 97%)
+                                > 30 ms < t < 50 ms                                  14257 (  2%)
+                                > t > 50 ms                                           1756 (  0%)
+                                > failed                                                 0 (  0%)
+                                ================================================================================
+                        </td>
+                    </tr>
             </table>
         </div>
     </div>
